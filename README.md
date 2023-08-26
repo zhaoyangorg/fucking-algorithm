@@ -32,7 +32,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 **做啥事情做多了，都能发现套路的，我把各种算法套路框架总结出来，相信可以帮助其他人少走弯路**。我这个纯靠自学的小童鞋，花了一年时间刷题和总结，自己写了一份算法小抄，后面有目录，这里就不废话了。
 
-### 使用方法
+## 在开始学习之前
 
 **1、先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
@@ -48,37 +48,95 @@ GitHub Pages 地址：https://labuladong.github.io/algo/
 
 Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
-**4、我的教程已经制作成了《算法秘籍》和《刷题笔记》两本 PDF 教材，[点这里](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 查看。另外建议关注 [我的 B 站](https://space.bilibili.com/14089380)，我把一系列核心算法技巧都录制成了视频，方便大家学习**。
+**另外建议关注 [我的 B 站](https://space.bilibili.com/14089380)，我把一系列核心算法技巧的文章都录制成了领读视频，方便大家学习**。
 
-**5、我开发了一系列配套插件辅助大家学习算法，覆盖各个使用场景**：
 
-首先是我的 [Chrome 刷题插件](https://mp.weixin.qq.com/s/wIxflO1dvXzDlibhEcENcQ)，方便在网页上刷题的读者，功能如下图：
+## 安装使用 labuladong 的刷题全家桶
 
-![](./pictures/plugin/chrome.jpg)
+> tip：labuladong 的刷题全家桶由学习网站、《算法秘籍》《刷题笔记》两本 PDF、Chrome/vscode/Jetbrain 三个不同平台的刷题插件组成，致力于为大家提供最丝滑的刷题体验。公众号后台回复关键词「**全家桶**」即可获取下载和使用手册。
 
-![](./pictures/plugin/chrome.gif)
+### 一、公众号/学习网站
 
-如果不喜欢在网页刷题，可以安装我的 [vscode 刷题插件](https://mp.weixin.qq.com/s/z4mqiiJV9pZ3t6SIPa2kTA)，功能如下图：
+内容当然是我的系列算法教程中最核心的部分，其他的插件和 PDF 教材都是为内容服务的。我的算法教程都发布在公众号/网站上，相信你会未来会在这里花费大量的学习时间，而不是仅仅加入收藏夹~
 
-![](./pictures/plugin/vscode.jpg)
+![](https://labuladong.github.io/pictures/简介/web_intro.jpg)
 
-![](./pictures/plugin/vscode.gif)
+**具体介绍**：[labuladong 的公众号/算法网站使用手册](https://labuladong.github.io/article/fname.html?fname=网站介绍)
 
-或者，也可以安装我的 [JetBrains 刷题插件](https://mp.weixin.qq.com/s/NF8mmVyXVfC1ehdMOsO7Cw)，功能如下图：
+### 二、PDF 教材
 
-![](./pictures/plugin/jetbrain.jpg)
+鉴于我积累的算法教程比较多，为了防止过于陡峭的学习曲线，我精心挑选了必知必会的算法技巧，设计了一套循序渐进的学习路线，并制作成 PDF 方便大家离线学习/记笔记。
 
-![](./pictures/plugin/jetbrain.gif)
+PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系统掌握算法的知识体系：
 
-**可以说，我把内容和配套工具全都做好了，你只要按部就班顺着我的教程学习，就可以获得沉浸式的学习体验。这是教程及工具链使用手册的入口**：
+![](https://labuladong.github.io/pictures/简介/pdf3.jpg)
 
-![](./pictures/plugin/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)
+另一本《labuladong 的刷题笔记》类似练习册，助你遨游题海，随心所欲地运用所学的技巧解题：
 
-其他的先不多说了，直接上干货吧，我们一起搞定 LeetCode，感受一下支配算法的乐趣。
+![](https://labuladong.github.io/pictures/简介/pdf5.jpg)
 
-# 目录
+**具体介绍**：[配套 PDF 算法教材使用手册](https://labuladong.github.io/article/fname.html?fname=pdf简介)
+
+### 三、精品课程
+
+如果你认可我的算法教程，可以购买我的付费课程，目前我制作完成了[《数据结构精品课》](https://labuladong.github.io/article/fname.html?fname=ds课程简介) 和[《二叉树（递归）专题课》](https://labuladong.github.io/article/fname.html?fname=tree课程简介)。另外，还有押金形式的[刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)，完成打卡后押金将全额返还，打卡挑战适用于自己刷题坚持不下来的小伙伴参加。
+
+课程和打卡挑战都可以在我的知识店铺购买和报名：
+
+<p align='center'>
+<img src="https://labuladong.github.io/pictures/xiaoe_qr.png" width = "200" />
+
+</p>
+
+话说回来，我今天能拥有这么多读者，都靠大家捧场，大家能从我这学到东西我就很高兴，不差钱的买个课捧个钱场，缺钱的把我的公众号/网站推荐给身边的朋友捧个人场，都是对我的支持！
+
+### 四、Chrome 插件
+
+**主要功能**：Chrome 插件可以在中文版力扣或英文版 LeetCode 上快捷查看我的「题解」或「思路」，并添加了题目和算法技巧之间的引用关系，可以和我的网站/公众号/课程联动，给我的读者提供最丝滑的刷题体验。
+
+![](https://labuladong.github.io/pictures/简介/chrome_intro.jpg)
+
+**安装使用手册**：[Chrome 插件安装使用手册](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
+
+### 五、vscode 插件
+
+**主要功能**：和 Chrome 插件功能基本相同，习惯在 vscode 上刷题的读者可以使用该插件。
+
+![](https://labuladong.github.io/pictures/简介/vs_intro.jpg)
+
+**安装使用手册**：[vscode 插件安装使用手册](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
+
+### 六、Jetbrains 插件
+
+**主要功能**：和 Chrome 插件功能基本相同，习惯在 Jetbrains 家的 IDE（PyCharm/Intellij/Goland 等）上刷题的读者可以使用该插件。
+
+![](https://labuladong.github.io/pictures/简介/jb_intro.jpg)
+
+**安装使用手册**：[Jetbrains 插件安装使用手册](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
+
+最后，把上面这些工具汇总成一张图：
+
+![](https://labuladong.github.io/pictures/others/全家桶.jpg)
+
+祝大家学习愉快，在题海中自在遨游！
+
+
+# 文章目录
 
 <!-- table start -->
+
+<!--  -->
+### [本站简介](https://labuladong.github.io/article/fname.html?fname=home)
+
+### [准备工作：安装刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介)
+  * [算法可视化功能简介（必读）](https://labuladong.github.io/article/fname.html?fname=可视化简介)
+  * [配套 Chrome 刷题插件（必装）](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
+  * [配套 vscode 刷题插件](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
+  * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
+  * [数据结构精品课](https://labuladong.github.io/article/fname.html?fname=ds课程简介)
+  * [二叉树递归专题课](https://labuladong.github.io/article/fname.html?fname=tree课程简介)
+  * [14 天刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
+  * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
 
 ### [第零章、核心框架汇总](https://labuladong.github.io/algo/)
   * [学习算法和刷题的框架思维](https://labuladong.github.io/article/fname.html?fname=学习数据结构和算法的高效方法)
@@ -124,8 +182,8 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [东哥带你刷二叉树（纲领篇）](https://labuladong.github.io/article/fname.html?fname=二叉树总结)
     * [东哥带你刷二叉树（思路篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)
     * [东哥带你刷二叉树（构造篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列2)
-    * [东哥带你刷二叉树（序列化篇）](https://labuladong.github.io/article/fname.html?fname=二叉树的序列化)
     * [东哥带你刷二叉树（后序篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列3)
+    * [东哥带你刷二叉树（序列化篇）](https://labuladong.github.io/article/fname.html?fname=二叉树的序列化)
     * [归并排序详解及应用](https://labuladong.github.io/article/fname.html?fname=归并排序)
     * [东哥带你刷二叉搜索树（特性篇）](https://labuladong.github.io/article/fname.html?fname=BST1)
     * [东哥带你刷二叉搜索树（基操篇）](https://labuladong.github.io/article/fname.html?fname=BST2)
@@ -137,21 +195,21 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
   * [手把手刷图算法](https://labuladong.github.io/algo/)
     * [图论基础及遍历算法](https://labuladong.github.io/article/fname.html?fname=图)
+    * [众里寻他千百度：名流问题](https://labuladong.github.io/article/fname.html?fname=名人问题)
     * [环检测及拓扑排序算法](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
     * [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
     * [并查集（Union-Find）算法](https://labuladong.github.io/article/fname.html?fname=UnionFind算法详解)
     * [Kruskal 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=kruskal)
     * [Prim 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=prim算法)
     * [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
-    * [众里寻他千百度：名流问题](https://labuladong.github.io/article/fname.html?fname=名人问题)
 
   * [手把手设计数据结构](https://labuladong.github.io/algo/)
+    * [单调栈结构解决三道算法题](https://labuladong.github.io/article/fname.html?fname=单调栈)
+    * [单调队列结构解决滑动窗口问题](https://labuladong.github.io/article/fname.html?fname=单调队列)
     * [算法就像搭乐高：带你手撸 LRU 算法](https://labuladong.github.io/article/fname.html?fname=LRU算法)
     * [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)
     * [前缀树算法模板秒杀五道算法题](https://labuladong.github.io/article/fname.html?fname=trie)
     * [一道求中位数的算法题把我整不会了](https://labuladong.github.io/article/fname.html?fname=数据流中位数)
-    * [单调栈结构解决三道算法题](https://labuladong.github.io/article/fname.html?fname=单调栈)
-    * [单调队列结构解决滑动窗口问题](https://labuladong.github.io/article/fname.html?fname=单调队列)
     * [二叉堆详解实现优先级队列](https://labuladong.github.io/article/fname.html?fname=二叉堆详解实现优先级队列)
     * [队列实现栈以及栈实现队列](https://labuladong.github.io/article/fname.html?fname=队列实现栈栈实现队列)
     * [设计朋友圈时间线功能](https://labuladong.github.io/article/fname.html?fname=设计Twitter)
@@ -162,6 +220,8 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [动态规划设计：最长递增子序列](https://labuladong.github.io/article/fname.html?fname=动态规划设计：最长递增子序列)
     * [最优子结构原理和 dp 数组遍历方向](https://labuladong.github.io/article/fname.html?fname=最优子结构)
     * [base case 和备忘录的初始值怎么定？](https://labuladong.github.io/article/fname.html?fname=备忘录等基础)
+    * [动态规划穷举的两种视角](https://labuladong.github.io/article/fname.html?fname=动归两种视角)
+    * [动态规划和回溯算法的思维转换](https://labuladong.github.io/article/fname.html?fname=单词拼接)
     * [对动态规划进行降维打击](https://labuladong.github.io/article/fname.html?fname=状态压缩技巧)
 
   * [子序列类型问题](https://labuladong.github.io/algo/)
@@ -175,7 +235,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [经典动态规划：0-1 背包问题](https://labuladong.github.io/article/fname.html?fname=背包问题)
     * [经典动态规划：子集背包问题](https://labuladong.github.io/article/fname.html?fname=背包子集)
     * [经典动态规划：完全背包问题](https://labuladong.github.io/article/fname.html?fname=背包零钱)
-    * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.github.io/article/fname.html?fname=targetSum)
+    * [目标和：背包问题的变体](https://labuladong.github.io/article/fname.html?fname=targetSum)
 
   * [用动态规划玩游戏](https://labuladong.github.io/algo/)
     * [动态规划之最小路径和](https://labuladong.github.io/article/fname.html?fname=最小路径和)
@@ -189,7 +249,6 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [经典动态规划：四键键盘](https://labuladong.github.io/article/fname.html?fname=动态规划之四键键盘)
     * [一个方法团灭 LeetCode 打家劫舍问题](https://labuladong.github.io/article/fname.html?fname=抢房子)
     * [一个方法团灭 LeetCode 股票买卖问题](https://labuladong.github.io/article/fname.html?fname=团灭股票问题)
-    * [有限状态机之 KMP 字符匹配算法](https://labuladong.github.io/article/fname.html?fname=动态规划之KMP字符匹配算法)
 
   * [贪心类型问题](https://labuladong.github.io/algo/)
     * [贪心算法之区间调度问题](https://labuladong.github.io/article/fname.html?fname=贪心算法之区间调度问题)
@@ -209,14 +268,14 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [如何用 BFS 算法秒杀各种智力题](https://labuladong.github.io/article/fname.html?fname=BFS解决滑动拼图)
 
   * [数学运算技巧](https://labuladong.github.io/algo/)
-    * [谈谈游戏中的随机算法](https://labuladong.github.io/article/fname.html?fname=随机算法)
+    * [一行代码就能解决的算法题](https://labuladong.github.io/article/fname.html?fname=一行代码解决的智力题)
+    * [几个反直觉的概率问题](https://labuladong.github.io/article/fname.html?fname=几个反直觉的概率问题)
     * [常用的位操作](https://labuladong.github.io/article/fname.html?fname=常用的位操作)
+    * [谈谈游戏中的随机算法](https://labuladong.github.io/article/fname.html?fname=随机算法)
     * [讲两道常考的阶乘算法题](https://labuladong.github.io/article/fname.html?fname=阶乘题目)
     * [如何高效寻找素数](https://labuladong.github.io/article/fname.html?fname=打印素数)
     * [如何高效进行模幂运算](https://labuladong.github.io/article/fname.html?fname=superPower)
     * [如何同时寻找缺失和重复的元素](https://labuladong.github.io/article/fname.html?fname=缺失和重复的元素)
-    * [一行代码就能解决的算法题](https://labuladong.github.io/article/fname.html?fname=一行代码解决的智力题)
-    * [几个反直觉的概率问题](https://labuladong.github.io/article/fname.html?fname=几个反直觉的概率问题)
 
   * [经典面试题](https://labuladong.github.io/algo/)
     * [分治算法详解：运算优先级](https://labuladong.github.io/article/fname.html?fname=分治算法)
@@ -244,7 +303,8 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
   * [消息队列架构设计演进](https://labuladong.github.io/article/fname.html?fname=消息队列)
   * [存储系统设计之 LSM 树原理](https://labuladong.github.io/article/fname.html?fname=LSM树)
   * [用消息队列制作一款多人在线游戏](https://labuladong.github.io/article/fname.html?fname=炸弹人游戏)
-  * [拥抱开源，告别 CRUD](https://labuladong.github.io/article/fname.html?fname=参与开源)
+  * [学习开源项目，告别 CRUD](https://labuladong.github.io/article/fname.html?fname=参与开源)
+  * [如何学习开源项目，我又总结了套路](https://labuladong.github.io/article/fname.html?fname=调试技巧)
 
 <!-- table end -->
 

@@ -7,9 +7,9 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0；[第 13 期刷题打卡](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后几天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -17,16 +17,21 @@
 
 | LeetCode | 力扣 | 难度 |
 | :----: | :----: | :----: |
-| [1038. Binary Search Tree to Greater Sum Tree](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/) | [1038. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/) | 🟠
+| [1038. Binary Search Tree to Greater Sum Tree](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/) | [1038. 从二叉搜索树到更大和树](https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/) | 🟠
 | [230. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [230. 二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | 🟠
 | [538. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/) | [538. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/) | 🟠
 | - | [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku/) | 🟠
 
 **-----------**
 
-> 本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)
+> tip：本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)。
 
-PS：[刷题插件](https://mp.weixin.qq.com/s/OE1zPVPj0V2o82N4HtLQbw) 集成了手把手刷二叉树功能，按照公式和套路讲解了 150 道二叉树题目，可手把手带你刷完二叉树分类的题目，迅速掌握递归思维。
+
+
+
+> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+
 
 前文手把手带你刷二叉树已经写了 [第一期](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)，[第二期](https://labuladong.github.io/article/fname.html?fname=二叉树系列2) 和 [第三期](https://labuladong.github.io/article/fname.html?fname=二叉树系列3)，今天写一篇二叉搜索树（Binary Search Tree，后文简写 BST）相关的文章，手把手带你刷 BST。
 
@@ -42,6 +47,7 @@ PS：[刷题插件](https://mp.weixin.qq.com/s/OE1zPVPj0V2o82N4HtLQbw) 集成了
 
 也就是说，如果输入一棵 BST，以下代码可以将 BST 中每个节点的值升序打印出来：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -58,12 +64,13 @@ void traverse(TreeNode root) {
 
 这是力扣第 230 题「二叉搜索树中第 K 小的元素」，看下题目：
 
-![](https://labuladong.github.io/algo/images/BST1/title.png)
+![](https://labuladong.github.io/pictures/BST1/title.png)
 
 这个需求很常见吧，一个直接的思路就是升序排序，然后找第 `k` 个元素呗。BST 的中序遍历其实就是升序排序的结果，找第 `k` 个元素肯定不是什么难事。
 
 按照这个思路，可以直接写出代码：
 
+<!-- muliti_language -->
 ```java
 int kthSmallest(TreeNode root, int k) {
     // 利用 BST 的中序遍历特性
@@ -92,11 +99,13 @@ void traverse(TreeNode root, int k) {
 }
 ```
 
+<visual slug='kth-smallest-element-in-a-bst'/>
+
 这道题就做完了，不过呢，还是要多说几句，因为这个解法并不是最高效的解法，而是仅仅适用于这道题。
 
 我们前文 [高效计算数据流的中位数](https://labuladong.github.io/article/fname.html?fname=数据流中位数) 中就提过今天的这个问题：
 
-> 如果让你实现一个在二叉搜索树中通过排名计算对应元素的方法 `select(int k)`，你会怎么设计？
+> info：如果让你实现一个在二叉搜索树中通过排名计算对应元素的方法 `select(int k)`，你会怎么设计？
 
 如果按照我们刚才说的方法，利用「BST 中序遍历就是升序排序结果」这个性质，每次寻找第 `k` 小的元素都要中序遍历一次，最坏的时间复杂度是 `O(N)`，`N` 是 BST 的节点个数。
 
@@ -124,6 +133,7 @@ void traverse(TreeNode root, int k) {
 
 也就是说，我们 `TreeNode` 中的字段应该如下：
 
+<!-- muliti_language -->
 ```java
 class TreeNode {
     int val;
@@ -142,12 +152,13 @@ class TreeNode {
 
 力扣第 538 题和 1038 题都是这道题，完全一样，你可以把它们一块做掉。看下题目：
 
-![](https://labuladong.github.io/algo/images/BST1/title1.png)
+![](https://labuladong.github.io/pictures/BST1/title1.png)
 
 题目应该不难理解，比如图中的节点 5，转化成累加树的话，比 5 大的节点有 6，7，8，加上 5 本身，所以累加树上这个节点的值应该是 5+6+7+8=26。
 
 我们需要把 BST 转化成累加树，函数签名如下：
 
+<!-- muliti_language -->
 ```java
 TreeNode convertBST(TreeNode root)
 ```
@@ -162,6 +173,7 @@ BST 的每个节点左小右大，这似乎是一个有用的信息，既然累�
 
 刚才我们说了 BST 的中序遍历代码可以升序打印节点的值：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -176,6 +188,7 @@ void traverse(TreeNode root) {
 
 很简单，只要把递归顺序改一下就行了：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -192,6 +205,7 @@ void traverse(TreeNode root) {
 
 看下代码就明白了：
 
+<!-- muliti_language -->
 ```java
 TreeNode convertBST(TreeNode root) {
     traverse(root);
@@ -213,16 +227,20 @@ void traverse(TreeNode root) {
 }
 ```
 
+<visual slug='convert-bst-to-greater-tree'/>
+
 这道题就解决了，核心还是 BST 的中序遍历特性，只不过我们修改了递归顺序，降序遍历 BST 的元素值，从而契合题目累加树的要求。
 
 简单总结下吧，BST 相关的问题，要么利用 BST 左小右大的特性提升算法效率，要么利用中序遍历的特性满足题目的要求，也就这么些事儿吧。
 
 当然，BST 还可以玩出更多花样，提供更丰富的 API，更多内容参见我的数据结构课程中的 [动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6) 章节。
 
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见 [手把手带你刷通二叉树](https://aep.xet.tech/s/3YGcq3)。
+
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [东哥带你刷二叉搜索树（基操篇）](https://labuladong.github.io/article/fname.html?fname=BST2)
@@ -235,21 +253,22 @@ void traverse(TreeNode root) {
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
-<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
 
 | LeetCode | 力扣 |
 | :----: | :----: |
 | - | [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku/?show=1) |
 
 </details>
+<hr>
 
 
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.github.io/pictures/souyisou2.png)

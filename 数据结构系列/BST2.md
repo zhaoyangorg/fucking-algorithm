@@ -7,9 +7,9 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0；[第 13 期刷题打卡](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后几天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -24,16 +24,20 @@
 
 **-----------**
 
-PS：[刷题插件](https://mp.weixin.qq.com/s/OE1zPVPj0V2o82N4HtLQbw) 集成了手把手刷二叉树功能，按照公式和套路讲解了 150 道二叉树题目，可手把手带你刷完二叉树分类的题目，迅速掌握递归思维。
+
+> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+
 
 我们前文 [东哥带你刷二叉搜索树（特性篇）](https://labuladong.github.io/article/fname.html?fname=BST1) 介绍了 BST 的基本特性，还利用二叉搜索树「中序遍历有序」的特性来解决了几道题目，本文来实现 BST 的基础操作：判断 BST 的合法性、增、删、查。其中「删」和「判断合法性」略微复杂。
 
 BST 的基础操作主要依赖「左小右大」的特性，可以在二叉树中做类似二分搜索的操作，寻找一个元素的效率很高。比如下面这就是一棵合法的二叉树：
 
-![](https://labuladong.github.io/algo/images/BST/0.png)
+![](https://labuladong.github.io/pictures/BST/0.png)
 
 对于 BST 相关的问题，你可能会经常看到类似下面这样的代码逻辑：
 
+<!-- muliti_language -->
 ```java
 void BST(TreeNode root, int target) {
     if (root.val == target)
@@ -51,6 +55,7 @@ void BST(TreeNode root, int target) {
 
 力扣第 98 题「验证二叉搜索树」就是让你判断输入的 BST 是否合法。注意，这里是有坑的哦，按照 BST 左小右大的特性，每个节点想要判断自己是否是合法的 BST 节点，要做的事不就是比较自己和左右孩子吗？感觉应该这样写代码：
 
+<!-- muliti_language -->
 ```java
 boolean isValidBST(TreeNode root) {
     if (root == null) return true;
@@ -68,12 +73,13 @@ boolean isValidBST(TreeNode root) {
 
 但是这个算法出现了错误，BST 的每个节点应该要小于右边子树的**所有**节点，下面这个二叉树显然不是 BST，因为节点 10 的右子树中有一个节点 6，但是我们的算法会把它判定为合法 BST：
 
-![](https://labuladong.github.io/algo/images/BST/假BST.png)
+![](https://labuladong.github.io/pictures/BST/假BST.png)
 
 **出现问题的原因在于，对于每一个节点 `root`，代码值检查了它的左右孩子节点是否符合左小右大的原则；但是根据 BST 的定义，`root` 的整个左子树都要小于 `root.val`，整个右子树都要大于 `root.val`**。
 
 问题是，对于某一个节点 `root`，他只能管得了自己的左右子节点，怎么把 `root` 的约束传递给左右子树呢？请看正确的代码：
 
+<!-- muliti_language -->
 ```java
 boolean isValidBST(TreeNode root) {
     return isValidBST(root, null, null);
@@ -92,18 +98,22 @@ boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
 }
 ```
 
+<visual slug='validate-binary-search-tree'/>
+
 我们通过使用辅助函数，增加函数参数列表，在参数中携带额外信息，将这种约束传递给子树的所有节点，这也是二叉树算法的一个小技巧吧。
 
 ### 在 BST 中搜索元素
 
 力扣第 700 题「二叉搜索树中的搜索」就是让你在 BST 中搜索值为 `target` 的节点，函数签名如下：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target);
 ```
 
 如果是在一棵普通的二叉树中寻找，可以这样写代码：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target);
     if (root == null) return null;
@@ -120,6 +130,7 @@ TreeNode searchBST(TreeNode root, int target);
 
 很简单，其实不需要递归地搜索两边，类似二分查找思想，根据 `target` 和 `root.val` 的大小比较，就能排除一边。我们把上面的思路稍稍改动：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target) {
     if (root == null) {
@@ -137,12 +148,15 @@ TreeNode searchBST(TreeNode root, int target) {
 }
 ```
 
+<visual slug='search-in-a-binary-search-tree'/>
+
 ### 在 BST 中插入一个数
 
 对数据结构的操作无非遍历 + 访问，遍历就是「找」，访问就是「改」。具体到这个问题，插入一个数，就是先找到插入位置，然后进行插入操作。
 
 上一个问题，我们总结了 BST 中的遍历框架，就是「找」的问题。直接套框架，加上「改」的操作即可。**一旦涉及「改」，就类似二叉树的构造问题，函数要返回 `TreeNode` 类型，并且要对递归调用的返回值进行接收**。
 
+<!-- muliti_language -->
 ```java
 TreeNode insertIntoBST(TreeNode root, int val) {
     // 找到空位置插入新节点
@@ -157,10 +171,13 @@ TreeNode insertIntoBST(TreeNode root, int val) {
 }
 ```
 
+<visual slug='insert-into-a-binary-search-tree'/>
+
 ### 三、在 BST 中删除一个数
 
 这个问题稍微复杂，跟插入操作类似，先「找」再「改」，先把框架写出来再说：
 
+<!-- muliti_language -->
 ```java
 TreeNode deleteNode(TreeNode root, int key) {
     if (root.val == key) {
@@ -180,7 +197,7 @@ TreeNode deleteNode(TreeNode root, int key) {
 
 **情况 1**：`A` 恰好是末端节点，两个子节点都为空，那么它可以当场去世了。
 
-![](https://labuladong.github.io/algo/images/BST/bst_deletion_case_1.png)
+![](https://labuladong.github.io/pictures/BST/bst_deletion_case_1.png)
 
 ```java
 if (root.left == null && root.right == null)
@@ -189,7 +206,7 @@ if (root.left == null && root.right == null)
 
 **情况 2**：`A` 只有一个非空子节点，那么它要让这个孩子接替自己的位置。
 
-![](https://labuladong.github.io/algo/images/BST/bst_deletion_case_2.png)
+![](https://labuladong.github.io/pictures/BST/bst_deletion_case_2.png)
 
 ```java
 // 排除了情况 1 之后
@@ -199,7 +216,7 @@ if (root.right == null) return root.left;
 
 **情况 3**：`A` 有两个子节点，麻烦了，为了不破坏 BST 的性质，`A` 必须找到左子树中最大的那个节点，或者右子树中最小的那个节点来接替自己。我们以第二种方式讲解。
 
-![](https://labuladong.github.io/algo/images/BST/bst_deletion_case_3.png)
+![](https://labuladong.github.io/pictures/BST/bst_deletion_case_3.png)
 
 ```java
 if (root.left != null && root.right != null) {
@@ -214,6 +231,7 @@ if (root.left != null && root.right != null) {
 
 三种情况分析完毕，填入框架，简化一下代码：
 
+<!-- muliti_language -->
 ```java
 TreeNode deleteNode(TreeNode root, int key) {
     if (root == null) return null;
@@ -244,6 +262,8 @@ TreeNode getMin(TreeNode node) {
     return node;
 }
 ```
+
+<visual slug='delete-node-in-a-bst'/>
 
 这样，删除操作就完成了。注意一下，上述代码在处理情况 3 时通过一系列略微复杂的链表操作交换 `root` 和 `minNode` 两个节点：
 
@@ -292,10 +312,12 @@ void BST(TreeNode root, int target) {
 
 3、根据代码框架掌握了 BST 的增删查改操作。
 
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见 [手把手带你刷通二叉树](https://aep.xet.tech/s/3YGcq3)。
+
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.github.io/article/fname.html?fname=BST3)
@@ -308,9 +330,23 @@ void BST(TreeNode root, int target) {
 
 
 
+<hr>
+<details class="hint-container details">
+<summary><strong>引用本文的题目</strong></summary>
+
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
+
+| LeetCode | 力扣 |
+| :----: | :----: |
+| - | [剑指 Offer 33. 二叉搜索树的后序遍历序列](https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/?show=1) |
+
+</details>
+<hr>
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.github.io/pictures/souyisou2.png)

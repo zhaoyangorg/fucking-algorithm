@@ -7,9 +7,9 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0；[第 13 期刷题打卡](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后几天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -23,7 +23,9 @@
 
 **-----------**
 
-> 本文有视频版：[BFS 算法核心框架套路](https://www.bilibili.com/video/BV1oT411u7Vn/)
+> tip：本文有视频版：[BFS 算法核心框架套路](https://www.bilibili.com/video/BV1oT411u7Vn/)。建议关注我的 B 站账号，我会用视频领读的方式带大家学习那些稍有难度的算法技巧。
+
+
 
 后台有很多人问起 BFS 和 DFS 的框架，今天就来说说吧。
 
@@ -35,7 +37,7 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 
 本文就由浅入深写两道 BFS 的典型题目，分别是「二叉树的最小高度」和「打开密码锁的最少步数」，手把手教你怎么写 BFS 算法。
 
-## 一、算法框架
+### 一、算法框架
 
 要说框架的话，我们先举例一下 BFS 出现的常见场景好吧，**问题的本质就是让你在一幅「图」中找到从起点 `start` 到终点 `target` 的最近距离，这个例子听起来很枯燥，但是 BFS 算法问题其实都是在干这个事儿**，把枯燥的本质搞清楚了，再去欣赏各种问题的包装才能胸有成竹嘛。
 
@@ -47,12 +49,13 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 
 再比如……
 
-净整些花里胡哨的，这些问题都没啥奇技淫巧，本质上就是一幅「图」，让你从一个起点，走到终点，问最短路径。这就是 BFS 的本质，框架搞清楚了直接默写就好。
+净整些花里胡哨的，本质上看这些问题都没啥区别，就是一幅「图」，让你从一个起点，走到终点，问最短路径。这就是 BFS 的本质，框架搞清楚了直接默写就好。
 
-![](https://labuladong.github.io/algo/images/BFS/0.jpeg)
+![](https://labuladong.github.io/pictures/BFS/0.jpeg)
 
 记住下面这个框架就 OK 了：
 
+<!-- muliti_language -->
 ```java
 // 计算从起点 start 到终点 target 的最近距离
 int BFS(Node start, Node target) {
@@ -61,7 +64,6 @@ int BFS(Node start, Node target) {
     
     q.offer(start); // 将起点加入队列
     visited.add(start);
-    int step = 0; // 记录扩散的步数
 
     while (q not empty) {
         int sz = q.size();
@@ -79,9 +81,8 @@ int BFS(Node start, Node target) {
                 }
             }
         }
-        /* 划重点：更新步数在这里 */
-        step++;
     }
+    // 如果走到这里，说明在图中没有找到目标节点
 }
 ```
 
@@ -91,7 +92,7 @@ int BFS(Node start, Node target) {
 
 先来个简单的问题实践一下 BFS 框架吧，判断一棵二叉树的**最小**高度，这也是力扣第 111 题「二叉树的最小深度」：
 
-![](https://labuladong.github.io/algo/images/BFS/title1.jpg)
+![](https://labuladong.github.io/pictures/BFS/title1.jpg)
 
 怎么套到 BFS 的框架里呢？首先明确一下起点 `start` 和终点 `target` 是什么，怎么判断到达了终点？
 
@@ -104,6 +105,7 @@ if (cur.left == null && cur.right == null)
 
 那么，按照我们上述的框架稍加改造来写解法即可：
 
+<!-- muliti_language -->
 ```java
 int minDepth(TreeNode root) {
     if (root == null) return 0;
@@ -133,9 +135,11 @@ int minDepth(TreeNode root) {
 }
 ```
 
+<visual slug='minimum-depth-of-binary-tree' />
+
 这里注意这个 `while` 循环和 `for` 循环的配合，**`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**：
 
-![](https://labuladong.github.io/algo/images/dijkstra/1.jpeg)
+![](https://labuladong.github.io/pictures/dijkstra/1.jpeg)
 
 这一点很重要，这个形式在普通 BFS 问题中都很常见，但是在 [Dijkstra 算法模板框架](https://labuladong.github.io/article/fname.html?fname=dijkstra算法) 中我们修改了这种代码模式，读完并理解本文后你可以去看看 BFS 算法是如何演变成 Dijkstra 算法在加权图中寻找最短路径的。
 
@@ -165,7 +169,14 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 这是力扣第 752 题「打开转盘锁」，比较有意思：
 
-![](https://labuladong.github.io/algo/images/BFS/title2.jpg)
+![](https://labuladong.github.io/pictures/BFS/title2.jpg)
+
+函数签名如下：
+
+<!-- muliti_language -->
+```java
+int openLock(String[] deadends, String target)
+```
 
 题目中描述的就是我们生活中常见的那种密码锁，如果没有任何约束，最少的拨动次数很好算，就像我们平时开密码锁那样直奔密码拨就行了。
 
@@ -179,6 +190,7 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 **仔细想想，这就可以抽象成一幅图，每个节点有 8 个相邻的节点**，又让你求最短距离，这不就是典型的 BFS 嘛，框架就可以派上用场了，先写出一个「简陋」的 BFS 框架代码再说别的：
 
+<!-- muliti_language -->
 ```java
 // 将 s[j] 向上拨动一次
 String plusOne(String s, int j) {
@@ -238,6 +250,7 @@ void BFS(String target) {
 
 如果你能够看懂上面那段代码，真得给你鼓掌，只要按照 BFS 框架在对应的位置稍作修改即可修复这些问题：
 
+<!-- muliti_language -->
 ```java
 int openLock(String[] deadends, String target) {
     // 记录需要跳过的死亡密码
@@ -295,14 +308,15 @@ int openLock(String[] deadends, String target) {
 
 为什么这样能够能够提升效率呢？其实从 Big O 表示法分析算法复杂度的话，它俩的最坏复杂度都是 `O(N)`，但是实际上双向 BFS 确实会快一些，我给你画两张图看一眼就明白了：
 
-![](https://labuladong.github.io/algo/images/BFS/1.jpeg)
+![](https://labuladong.github.io/pictures/BFS/1.jpeg)
 
-![](https://labuladong.github.io/algo/images/BFS/2.jpeg)
+![](https://labuladong.github.io/pictures/BFS/2.jpeg)
 
 图示中的树形结构，如果终点在最底部，按照传统 BFS 算法的策略，会把整棵树的节点都搜索一遍，最后找到 `target`；而双向 BFS 其实只遍历了半棵树就出现了交集，也就是找到了最短距离。从这个例子可以直观地感受到，双向 BFS 是要比传统 BFS 高效的。
 
 **不过，双向 BFS 也有局限，因为你必须知道终点在哪里**。比如我们刚才讨论的二叉树最小高度的问题，你一开始根本就不知道终点在哪里，也就无法使用双向 BFS；但是第二个密码锁的问题，是可以使用双向 BFS 算法来提高效率的，代码稍加修改即可：
 
+<!-- muliti_language -->
 ```java
 int openLock(String[] deadends, String target) {
     Set<String> deads = new HashSet<>();
@@ -357,6 +371,7 @@ int openLock(String[] deadends, String target) {
 
 其实双向 BFS 还有一个优化，就是在 while 循环开始时做一个判断：
 
+<!-- muliti_language -->
 ```java
 // ...
 while (!q1.isEmpty() && !q2.isEmpty()) {
@@ -382,7 +397,7 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
@@ -395,7 +410,7 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
  - [旅游省钱大法：加权最短路径](https://labuladong.github.io/article/fname.html?fname=旅行最短路径)
  - [环检测及拓扑排序算法](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
- - [用算法打败算法 <a id="guideline2"></a>](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+ - [用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
  - [算法学习和心流体验](https://labuladong.github.io/article/fname.html?fname=心流)
 
 </details><hr>
@@ -404,27 +419,37 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
-<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
 
 | LeetCode | 力扣 |
 | :----: | :----: |
 | [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/?show=1) | [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/?show=1) |
+| [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/?show=1) | [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/?show=1) |
 | [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/?show=1) | [117. 填充每个节点的下一个右侧节点指针 II](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/?show=1) |
+| [1926. Nearest Exit from Entrance in Maze](https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/?show=1) | [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/?show=1) |
+| [286. Walls and Gates](https://leetcode.com/problems/walls-and-gates/?show=1)🔒 | [286. 墙与门](https://leetcode.cn/problems/walls-and-gates/?show=1)🔒 |
+| [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/?show=1) | [310. 最小高度树](https://leetcode.cn/problems/minimum-height-trees/?show=1) |
+| [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/?show=1) | [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem/?show=1) |
 | [431. Encode N-ary Tree to Binary Tree](https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree/?show=1)🔒 | [431. 将 N 叉树编码为二叉树](https://leetcode.cn/problems/encode-n-ary-tree-to-binary-tree/?show=1)🔒 |
+| [490. The Maze](https://leetcode.com/problems/the-maze/?show=1)🔒 | [490. 迷宫](https://leetcode.cn/problems/the-maze/?show=1)🔒 |
+| [505. The Maze II](https://leetcode.com/problems/the-maze-ii/?show=1)🔒 | [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/?show=1)🔒 |
+| [542. 01 Matrix](https://leetcode.com/problems/01-matrix/?show=1) | [542. 01 矩阵](https://leetcode.cn/problems/01-matrix/?show=1) |
 | [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/?show=1) | [773. 滑动谜题](https://leetcode.cn/problems/sliding-puzzle/?show=1) |
 | [863. All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/?show=1) | [863. 二叉树中所有距离为 K 的结点](https://leetcode.cn/problems/all-nodes-distance-k-in-binary-tree/?show=1) |
+| - | [剑指 Offer 32 - I. 从上到下打印二叉树](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/?show=1) |
 | - | [剑指 Offer 32 - II. 从上到下打印二叉树 II](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/?show=1) |
 | - | [剑指 Offer II 109. 开密码锁](https://leetcode.cn/problems/zlDJc7/?show=1) |
 
 </details>
+<hr>
 
 
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.github.io/pictures/souyisou2.png)

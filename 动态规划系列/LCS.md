@@ -7,9 +7,9 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0；[第 13 期刷题打卡](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后几天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -36,6 +36,7 @@
 
 给你输入两个字符串 `s1` 和 `s2`，请你找出他们俩的最长公共子序列，返回这个子序列的长度。函数签名如下：
 
+<!-- muliti_language -->
 ```java
 int longestCommonSubsequence(String s1, String s2);
 ```
@@ -51,7 +52,7 @@ int longestCommonSubsequence(String s1, String s2);
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [动态规划之子序列问题解题模板](https://labuladong.github.io/article/fname.html?fname=子序列问题模板)
@@ -63,10 +64,10 @@ int longestCommonSubsequence(String s1, String s2);
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
-<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
 
 | LeetCode | 力扣 |
 | :----: | :----: |
@@ -74,11 +75,12 @@ int longestCommonSubsequence(String s1, String s2);
 | - | [剑指 Offer II 095. 最长公共子序列](https://leetcode.cn/problems/qJnOS7/?show=1) |
 
 </details>
+<hr>
 
 
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-应合作方要求，本文不便在此发布，请扫码关注回复关键词「LCS」或 [点这里](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6298793ae4b09dda12708be8/1) 查看：
+本文为会员内容，请扫码关注公众号或 [点这里](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6298793ae4b09dda12708be8/1) 查看：
 
-![](https://labuladong.github.io/algo/images/qrcode.jpg)
+![](https://labuladong.github.io/pictures/qrcode.jpg)
